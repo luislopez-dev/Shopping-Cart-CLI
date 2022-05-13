@@ -1,1 +1,1 @@
-# SHopping Cart CLI
+# Shopping Cart CLI
