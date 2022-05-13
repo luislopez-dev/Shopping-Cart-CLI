@@ -1,12 +1,12 @@
 # Shopping Cart CLI
 
 ## Table of contents
-* Introduction
-* Technology
-* Installation
-* Run
-* Commands
-* Licence
+* Introduction(#introduction)
+* Technology(#technology)
+* Installation(#installation)
+* Run(#run)
+* Commands(#commands)
+* Licence(#licence)
 
 ## Introduction
 
