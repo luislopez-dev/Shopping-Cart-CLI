@@ -1,0 +1,2 @@
+class ProductModel
+end
