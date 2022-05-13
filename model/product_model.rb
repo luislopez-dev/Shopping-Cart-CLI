@@ -1,2 +1,4 @@
-class ProductModel
+require 'mongo'
+
+class ProductModel < Mongo
 end

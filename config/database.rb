@@ -4,9 +4,19 @@ class Database
 
   @@uri = ENV["database_url"]
 
-  def self.connect
+  def initialize
+    @connection = connect
+  end
+
+  private
+  def connect
     Mongo::Client.new(@@uri)
-        client[:products]
+  end
+
+  def select_collection(collection)
+    a = "a"
+    collection = "#{a}"
+    @connection[:]
   end
 
 end

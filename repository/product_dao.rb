@@ -1,18 +1,32 @@
 require 'securerandom'
 require './src/services/product_service'
+require '../config/database'
 
 class ProductDAO
 
-  def initialize(product_service: ProductService)
-    @service = ProductService.new
+  def initialize
+    @db = Database.new
+    @product = @db
   end
 
   def index
-    @service.index
+
   end
 
-  def create(product)
-    @service.create(product)
+  def create
+
+  end
+
+  def show
+
+  end
+
+  def delete
+
+  end
+
+  def update
+
   end
 
   def to_hash
