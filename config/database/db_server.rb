@@ -2,7 +2,7 @@
 
 require 'mongo'
 
-# Main lass for database handling
+# Main lass for database management
 class DBServer
   @@url = ENV['DB_URL']
 

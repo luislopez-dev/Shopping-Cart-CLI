@@ -13,8 +13,7 @@ module CLIActions
     products.each_with_index do |item, idx|
       rows << [idx + 1, item['name'], item['price'], item['stock'], item['_id']]
     end
-    table = Terminal::Table.new :title => "Productos", :headings => ['', 'Nombre', 'Precio', 'Unidades disponibles', 'Identificador'], :rows => rows
-    puts table
+    puts Terminal::Table.new :title => "Products", :headings => ['', 'Name', 'Price', 'Stock', 'ID'], :rows => rows
   end
 
   def delete
@@ -27,17 +26,16 @@ module CLIActions
   def find_by_price
     puts 'Enter the maximum price'
     max_price = gets.chomp
-    puts "Enter the minimun price"
+    puts 'Enter the minimum price'
     min_price = gets.chomp
   end
 
   def find_by_id
-    puts 'Enter product ID'
+    puts 'Enter the product ID'
     id = gets.chomp
     product = @product_service.find_by_id(id)
     rows = [[product['name'], product['price'], product['stock'], product['_id']]]
-    table = Terminal::Table.new :headings => ['Nombre', 'Precio', 'Unidades disponibles', 'Identificador'], :rows => rows
-    puts table
+    puts Terminal::Table.new :headings => ['Name', 'Price', 'Stock', 'ID'], :rows => rows
   end
 
   def create
