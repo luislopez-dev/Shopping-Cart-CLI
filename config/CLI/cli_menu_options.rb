@@ -99,7 +99,7 @@ module CLIMenuOptions
   end
 
   def empty
-    puts 'Enter a command o enter "exit" to leave'
+    puts 'Enter a command or enter "exit" to leave'
   end
 
   def clear
