@@ -15,10 +15,8 @@ class ProductDAO
 
   def index(ids)
     bson_ids = ids.map { |item| BSON.ObjectId(item) }
-    search = @product.find({ '_id': { '$in': bson_ids } })
-    products = []
-    search.each { |product| products << product }
-    products
+    query = @product.find({ '_id': { '$in': bson_ids } })
+    query.map { |product| product }
   end
 
   def delete(id)

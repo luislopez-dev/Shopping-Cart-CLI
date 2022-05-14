@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require './config/CLI/menu_options'
+require './config/CLI/cli_menu_options'
 
 # Module for command line interface menu
 module CLIMenu
 
-  include MenuOptions
+  include CLIMenuOptions
 
   def initialize
     @product_service = ProductService.new
@@ -13,7 +13,7 @@ module CLIMenu
   end
 
   def start
-    puts 'Welcome to shopping cart CLI'
+    puts 'Welcome to shopping cart CLI!'
     loop do
       input = gets.chomp
       case input
