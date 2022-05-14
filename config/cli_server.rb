@@ -1,10 +1,10 @@
 require 'io/console'
-require './src/product'
+require './service/product_service'
 
 class CLI_server
 
-  def initialize()
-    @product = Product.new
+  def initialize
+    @product_service = ProductService.new
   end
 
   def start
@@ -13,7 +13,7 @@ class CLI_server
       input = gets.chomp
       case input
       when "index"
-        p @product.index
+        p @product_service.index
       when "delete"
         puts "Enter product ID"
         id = gets.chomp

@@ -1,40 +1,20 @@
-require 'securerandom'
-require './src/services/product_service'
-require '../config/database'
+# frozen_string_literal: true
 
+require './config/database'
+
+# Data access object for Product collection
 class ProductDAO
-
+  @collection_name = "products"
   def initialize
     @db = Database.new
-    @product = @db
+    @product = @db.select_collection("products")
   end
 
   def index
-
-  end
-
-  def create
-
-  end
-
-  def show
-
-  end
-
-  def delete
-
-  end
-
-  def update
-
-  end
-
-  def to_hash
-    hash = {}
-    self.instance_variables.each do |var|
-      hash[var.to_s.delete("@")] = self.instance_variable_get(var)
+    products = []
+    @product.find.each do |document|
+      products.push(document)
     end
-    hash
+    products
   end
-
 end

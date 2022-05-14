@@ -1,22 +1,14 @@
-#require 'yaml'
-#require 'terminal-table'
-require '././config/database'
+# frozen_string_literal: true
 
+require './repository/product_dao'
+
+# Service layer for Product Data access object
 class ProductService
-
   def initialize
-    @db = Database.connect
+    @product_dao = ProductDAO.new
   end
 
   def index
-    products = []
-    @db.find.each { |product| products.push(product) }
-    products
+    @product_dao.index
   end
-
-  def create(product)
-    doc = {name:"cocacola", price: 745, stock: 47}
-    @db.insert_one(doc)
-  end
-
 end

@@ -1,2 +1,0 @@
-class OrderModel
-end
