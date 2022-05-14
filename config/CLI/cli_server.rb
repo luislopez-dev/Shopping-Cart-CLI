@@ -3,8 +3,6 @@
 require './config/CLI/cli_menu'
 
 # Command line interface server class
-class CLIServer < CLIMenu
-  def start
-    super
-  end
+class CLIServer
+  include CLIMenu
 end

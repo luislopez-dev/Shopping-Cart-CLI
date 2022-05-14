@@ -2,9 +2,10 @@
 
 require 'io/console'
 require './service/product_service'
+require 'terminal-table'
 
 # Module for command line interface menu
-class CLIMenu
+module CLIMenu
 
   def initialize
     @product_service = ProductService.new
@@ -15,8 +16,14 @@ class CLIMenu
     loop do
       input = gets.chomp
       case input
-      when 'index'
-        p @product_service.index
+      when 'all' # Display all products
+        products = @product_service.all
+        rows = []
+        products.each_with_index do |item, idx|
+          rows << [idx + 1, item['name'], item['price'], item['stock'], item['_id']]
+        end
+        table = Terminal::Table.new :title => "Productos", :headings => ['', 'Nombre', 'Precio', 'Unidades disponibles', 'Identificador'], :rows => rows
+        puts table
       when 'delete'
         puts 'Enter product ID'
         id = gets.chomp

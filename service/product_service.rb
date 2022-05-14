@@ -8,7 +8,7 @@ class ProductService
     @product_dao = ProductDAO.new
   end
 
-  def index
-    @product_dao.index
+  def all
+    @product_dao.all
   end
 end

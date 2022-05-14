@@ -9,11 +9,8 @@ class ProductDAO
     @product = @db.select_collection('products')
   end
 
-  def index
-    products = []
-    @product.find.each do |document|
-      products.push(document)
-    end
-    products
+  def all
+    @product.find.map { |document| document }
   end
+
 end
