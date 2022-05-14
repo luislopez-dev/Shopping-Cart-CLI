@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
-require 'io/console'
-require './service/product_service'
-require 'terminal-table'
+require './config/CLI/menu_options'
 
 # Module for command line interface menu
 module CLIMenu
 
+  include MenuOptions
+
   def initialize
     @product_service = ProductService.new
+    @cart_service = CartService.new
   end
 
   def start
@@ -17,58 +18,29 @@ module CLIMenu
       input = gets.chomp
       case input
       when 'all' # Display all products
-        products = @product_service.all
-        rows = []
-        products.each_with_index do |item, idx|
-          rows << [idx + 1, item['name'], item['price'], item['stock'], item['_id']]
-        end
-        table = Terminal::Table.new :title => "Productos", :headings => ['', 'Nombre', 'Precio', 'Unidades disponibles', 'Identificador'], :rows => rows
-        puts table
-      when 'delete'
-        puts 'Enter product ID'
-        id = gets.chomp
-        puts id
-      when 'find_by_price'
-        puts 'Enter the maximum price'
-        max_price = gets.chomp
-        puts "Enter the minimun price"
-        min_price = gets.chomp
-      when 'find_by_name'
-        puts 'Enter name: '
-        name = gets.chomp
+        all
+      when 'delete' # Delete product by Item
+        delete
       when 'find_by_id'
-        puts 'Enter product ID'
-        id = gets.chomp
-        puts id
+        find_by_id
       when 'create'
-        puts 'Enter product name: '
-        name = gets.chomp
-        puts 'Enter product price: '
-        price = gets.chomp
-        puts 'Enter product initial Stock'
-        stock = gets.chop
-        puts 'Product succesfully created'
+        create
       when 'cart'
-        puts 'all items in cart'
+        cart
       when 'add_to_cart'
-        puts 'Enter product ID'
-        id = gets.chomp
+        add_to_cart
+      when 'show_cart'
+        show_cart
+      when 'remove_from_cart'
+        remove_from_cart
       when 'get_order'
-        puts 'Order'
+        get_order
       when 'checkout'
-        puts 'Enter shipping address'
-        address = gets.chomp
-        puts 'Enter your credit card number:'
-        cc = gets.chomp
-        puts 'Enter the credit card CCV code'
-        ccv = gets.chomp
-        puts 'Enter your email'
-        email = gets.chomp
-        puts 'Your invoice'
+        checkout
       when ''
-        puts 'Enter a command o enter "exit" to leave'
+        empty
       when 'clear'
-        $stdout.clear_screen
+        clear
       when 'exit'
         break
       else
