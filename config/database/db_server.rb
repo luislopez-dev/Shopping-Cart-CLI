@@ -4,8 +4,7 @@ require 'mongo'
 
 # Main lass for database handling
 class DBServer
-  #  @@url = ENV['DB_URL']
-  @@url = 'mongodb+srv://luis:jbGYgEiSL3yvIK5b@cluster0.pva0d.mongodb.net/ShoppingCartCLI?retryWrites=true&w=majority'
+  @@url = ENV['DB_URL']
 
   def initialize
     @connection = connect
