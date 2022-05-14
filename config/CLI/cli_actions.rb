@@ -5,8 +5,8 @@ require './service/product_service'
 require './service/cart_service'
 require 'terminal-table'
 
-# Options / Methods for command line interface menu
-module CLIMenuOptions
+# Actions / Methods for command line interface
+module CLIActions
   def all
     products = @product_service.all
     rows = []
