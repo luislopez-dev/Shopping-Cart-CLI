@@ -10,12 +10,16 @@
 
 ## Introduction
 
+First project to put into practice the knowledge learned from the Ruby on rails / React Bootcamp
+
 ## Technology
-
+* Ruby
+* MongoDB
 ## Installation
-
+* Clone this repository `git clone https://github.com/luislopez-dev/Shopping-Cart-CLI`
 ## Run
-
+1. Go to the project root folder, e.g: `cd Shopping-Cart-CLI`
+2. Run the main.rb file, e.g: `ruby main.rb`
 ## Commands
 
 ## Licence
