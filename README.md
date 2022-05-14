@@ -19,7 +19,8 @@ First project to put into practice the knowledge learned from the Ruby on rails 
 * Clone this repository `git clone https://github.com/luislopez-dev/Shopping-Cart-CLI`
 ## Run
 1. Go to the project root folder, e.g: `cd Shopping-Cart-CLI`
-2. Run the file `main.rb`, e.g: `ruby main.rb`
+2. Set up the environment variable `DB_URL` with the url of your MongoDB-database connection string
+3. Run the file `main.rb`, e.g: `ruby main.rb`
 ## Commands
 
 ## Licence
