@@ -18,19 +18,19 @@ class CLIServer
       input = gets.chomp
       case input
       when 'show_products'
-        show_products # Display all products available
+        show_products # Displays all available products
       when 'create_product'
-        create_product # Create product
+        create_product # Creates a new product
       when 'delete_product'
-        delete_product # Delete product
+        delete_product # Deletes product by ID
       when 'find_product_by_id'
-        find_product_by_id # Find product by it's identifier
+        find_product_by_id # Finds product by ID
       when 'add_to_cart'
         add_to_cart # Add product to cart
       when 'show_cart'
-        show_cart # Display cart
+        show_cart # Displays cart
       when 'remove_from_cart'
-        remove_from_cart # Remove product from cart
+        remove_from_cart # Removes product from cart
       when 'clear_cart'
         clear_cart # Clear cart
       when 'show_order'
@@ -39,7 +39,7 @@ class CLIServer
         empty # Display warning message
       when 'clear' # Clear console
         clear
-      when 'exit' # Exit command line interface
+      when 'exit' # Closes command line interface
         break
       else
         puts 'Command not found'
