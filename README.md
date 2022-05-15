@@ -4,4 +4,9 @@
 * Ruby 2.7
 * MongoDB
 ## Commands
-1.
+
+| Name | Required |
+| :---:| :-:|
+| name | true |
+| email | true  |
+| password | true |
