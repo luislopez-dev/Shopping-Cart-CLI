@@ -4,10 +4,4 @@
 * Ruby
 * MongoDB
 ## Commands
-1. 
-
-## Licence
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-* MIT License
-* Copyright 2022 © [Luis Lopez](https://github.com/luislopez-dev)
+1.
