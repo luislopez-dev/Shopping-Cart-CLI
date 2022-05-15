@@ -20,8 +20,8 @@ class ProductService
     @product_dao.delete(id)
   end
 
-  def create(name, price, stock)
-    @product_dao.create(name, price, stock)
+  def create(name, price, brand)
+    @product_dao.create(name, price, brand)
   end
 
   def find_by_id(id)

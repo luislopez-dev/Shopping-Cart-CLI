@@ -17,31 +17,29 @@ class CLIServer
     loop do
       input = gets.chomp
       case input
-      when 'all' # Display all products
-        all
-      when 'delete' # Delete product by Item
-        delete
-      when 'find_by_id'
-        find_by_id
-      when 'create'
-        create
-      when 'cart'
-        cart
+      when 'show_products'
+        show_products # Display all products available
+      when 'create_product'
+        create_product # Create product
+      when 'delete_product'
+        delete_product # Delete product
+      when 'find_product_by_id'
+        find_product_by_id # Find product by it's identifier
       when 'add_to_cart'
-        add_to_cart
+        add_to_cart # Add product to cart
       when 'show_cart'
-        show_cart
+        show_cart # Display cart
       when 'remove_from_cart'
-        remove_from_cart
-      when 'get_order'
-        get_order
-      when 'checkout'
-        checkout
+        remove_from_cart # Remove product from cart
+      when 'clear_cart'
+        clear_cart # Clear cart
+      when 'show_order'
+        show_order # Display order
       when ''
-        empty
-      when 'clear'
+        empty # Display warning message
+      when 'clear' # Clear console
         clear
-      when 'exit'
+      when 'exit' # Exit command line interface
         break
       else
         puts 'Command not found'

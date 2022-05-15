@@ -19,4 +19,8 @@ class CartService
     @@products.delete(id)
   end
 
+  def clear
+    @@products.clear
+  end
+
 end

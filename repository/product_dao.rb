@@ -27,11 +27,11 @@ class ProductDAO
     @product.find({ "_id": BSON.ObjectId(id) }).first
   end
 
-  def create(name, price, stock)
+  def create(name, price, brand)
     doc = {
       name: name,
       price: price,
-      stock: stock
+      brand: brand
     }
     @product.insert_one(doc)
   end

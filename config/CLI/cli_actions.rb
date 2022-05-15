@@ -7,57 +7,46 @@ require 'terminal-table'
 
 # Actions / Methods for command line interface
 module CLIActions
-  def all
+  def show_products
     products = @product_service.all
     rows = []
     products.each_with_index do |item, idx|
-      rows << [idx + 1, item['name'], item['price'], item['stock'], item['_id']]
+      rows << [idx + 1, item['name'], "Q#{item['price']}", item['brand'], item['_id']]
     end
-    puts Terminal::Table.new :title => "Products", :headings => ['', 'Name', 'Price', 'Stock', 'ID'], :rows => rows
+    puts Terminal::Table.new :title => "Productos", :headings => ['', 'Nombre', 'Precio', 'Marca', 'ID'], :rows => rows
   end
 
-  def delete
+  def create_product
+    puts 'Enter product name:'
+    name = gets.chomp
+    puts 'Enter product price:'
+    price = gets.chomp
+    puts 'Enter product brand'
+    brand = gets.chop
+    @product_service.create(name, price, brand)
+    puts 'Product successfully created'
+  end
+
+  def delete_product
     puts 'Enter product ID'
     id = gets.chomp
     @product_service.delete(id)
     puts 'Product successfully deleted'
   end
 
-  def find_by_price
-    puts 'Enter the maximum price'
-    max_price = gets.chomp
-    puts 'Enter the minimum price'
-    min_price = gets.chomp
-  end
-
-  def find_by_id
+  def find_product_by_id
     puts 'Enter the product ID'
     id = gets.chomp
     product = @product_service.find_by_id(id)
-    rows = [[product['name'], product['price'], product['stock'], product['_id']]]
-    puts Terminal::Table.new :headings => ['Name', 'Price', 'Stock', 'ID'], :rows => rows
-  end
-
-  def create
-    puts 'Enter product name: '
-    name = gets.chomp
-    puts 'Enter product price: '
-    price = gets.chomp
-    puts 'Enter product initial Stock'
-    stock = gets.chop
-    @product_service.create(name, price, stock)
-    puts 'Product successfully created'
-  end
-
-  def cart
-    puts 'all items in cart'
-    @cart_service.list
+    rows = [[product['name'], product['price'], product['brand'], product['_id']]]
+    puts Terminal::Table.new :headings => ['Nombre', 'Precio', 'Marca', 'ID'], :rows => rows
   end
 
   def add_to_cart
     puts 'Enter product ID'
     id = gets.chomp
     @cart_service.add(id)
+    show_cart
     puts 'Product successfully added to cart'
   end
 
@@ -65,35 +54,42 @@ module CLIActions
     products = @cart_service.all
     rows = []
     products.each_with_index do |item, idx|
-      rows << [idx + 1, item['name'], item['price'], item['_id']]
+      rows << [idx + 1, item['name'], "Q#{item['price']}", item['brand'], item['_id']]
     end
-    table = Terminal::Table.new :title => "Carito", :headings => ['', 'Nombre', 'Precio', 'Identificador'], :rows => rows
-    puts table
+    puts Terminal::Table.new :title => 'Carito', :headings => ['', 'Nombre', 'Precio','Marca', 'Identificador'], :rows => rows
   end
 
   def remove_from_cart
     puts 'Enter product ID'
     id = gets.chomp
     @cart_service.delete(id)
-    'Product successfully removed from cart'
+    show_cart
+    puts 'Product successfully removed from cart'
   end
 
-  def get_order
-    puts 'Order'
-    table = Terminal::Table.new :title => "Orden", :headings => ['', '', '', 'Total'], :rows => rows
-    puts table
+  def clear_cart
+    @cart_service.clear
+    puts 'Cart successfully cleared'
+    show_cart
   end
 
-  def checkout
-    puts 'Enter shipping address'
-    address = gets.chomp
-    puts 'Enter your credit card number:'
-    cc = gets.chomp
-    puts 'Enter the credit card CCV code'
-    ccv = gets.chomp
-    puts 'Enter your email'
-    email = gets.chomp
-    puts 'Your invoice'
+  def show_order
+    products = @cart_service.all
+    rows = []
+    sub_total = 0
+    products.each do |item|
+      rows << [item['name'], "Q#{item['price']}"]
+      sub_total += item['price'].to_f
+    end
+    taxes = ((5 * sub_total) / 100).round(2) # 5% of sub total
+    shipping = 30.00
+    total = (sub_total + shipping + taxes).round(2)
+    sub_total_row = ['SUB TOTAL', "Q#{sub_total}"]
+    shipping_row = ['ENVIO', "Q#{shipping}"]
+    taxes_row = ['IMPUESTOS', "Q#{taxes}"]
+    total_row = ['TOTAL', "Q#{total}"]
+    rows.push(sub_total_row, shipping_row, taxes_row, total_row)
+    puts Terminal::Table.new :title => 'Orden de la compra', :rows => rows
   end
 
   def empty
