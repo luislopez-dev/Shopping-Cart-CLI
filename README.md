@@ -1,27 +1,22 @@
 # Shopping Cart CLI
 
 ## Table of contents
-* [Introduction](#introduction)
-* [Technology](#technology)
-* [Installation](#installation)
-* [Run](#run)
+* [Technologies](#technologies)
+* [Installation & execution](#installation&execution)
 * [Commands](#commands)
 * [Licence](#licence)
 
-## Introduction
-
-First project to put into practice the knowledge learned from the Ruby on rails / React Bootcamp
-
-## Technology
+## Technologies
 * Ruby
 * MongoDB
-## Installation
-* Clone this repository `git clone https://github.com/luislopez-dev/Shopping-Cart-CLI`
-## Run
-1. Go to the project root folder, e.g: `cd Shopping-Cart-CLI`
-2. Set up the environment variable `DB_URL` with the url of your MongoDB-database connection string
-3. Run the file `main.rb`, e.g: `ruby main.rb`
+## Installation & execution
+1. Clone this repository: `git clone https://github.com/luislopez-dev/Shopping-Cart-CLI`
+2. Go to the root folder of the project: `cd Shopping-Cart-CLI`
+3. Set up the environment variable `DB_URL` with the url of your MongoDB-database connection string
+4. Run the file `main.rb`: `ruby main.rb`
 ## Commands
+
+1. 
 
 ## Licence
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
