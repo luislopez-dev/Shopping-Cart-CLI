@@ -1,7 +1,7 @@
 # Shopping Cart CLI
 
 ## Technologies
-* Ruby
+* Ruby 2.7
 * MongoDB
 ## Commands
 1.
