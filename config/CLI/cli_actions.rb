@@ -18,11 +18,11 @@ module CLIActions
 
   def create_product
     puts 'Enter product name:'
-    name = gets.chomp
+    name = gets.chomp.to_s
     puts 'Enter product price:'
-    price = gets.chomp
+    price = gets.chomp.to_f
     puts 'Enter product brand'
-    brand = gets.chop
+    brand = gets.chop.to_s
     @product_service.create(name, price, brand)
     puts 'Product successfully created'
   end
