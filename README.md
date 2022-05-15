@@ -1,16 +1,9 @@
 # Shopping Cart CLI
 
-## Table of contents
-* [Technologies](#technologies)
-* [Commands](#commands)
-* [Licence](#licence)
-
 ## Technologies
 * Ruby
 * MongoDB
-
 ## Commands
-
 1. 
 
 ## Licence
