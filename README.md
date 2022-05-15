@@ -5,15 +5,13 @@
 * MongoDB
 ## Commands
 
-| Name | Description |
-| :---:| :-:|
-| `show_products` | Displays all available products |
-| `create_product` | Creates a new product  |
-| `delete_product` | Deletes product by ID |
-| `find_product_by_id` | Finds product by ID |
-| `show_cart` | Displays cart |
-| `remove_from_cart` | Removes product from cart by product ID |
-| `clear_cart` | Clears cart |
-| `show_order` | Displays purchase order |
-| `clear` | Clears user console |
-| `exit` | Closes command line interface (finishes program) |
+1. `show_products`: Displays all available products
+2. `create_product`: Creates a new product
+3. `delete_product`: Deletes product by ID
+4. `find_product_by_id`: Finds product by ID
+5. `show_cart`: Displays cart
+6. `remove_from_cart`: Removes product from cart by product ID
+7. `clear_cart`: Clears cart
+8. `show_order`: Displays purchase order
+9. `clear`: Clears user console
+10. `exit`: Closes command line interface (finishes program) |
