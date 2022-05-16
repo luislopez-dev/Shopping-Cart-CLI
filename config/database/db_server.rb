@@ -4,7 +4,9 @@ require 'mongo'
 
 # Main lass for database management
 class DBServer
+
   @@url = ENV['DB_URL']
+
   def initialize
     @connection = connect
   end
