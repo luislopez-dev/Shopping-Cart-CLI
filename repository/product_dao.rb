@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require './config/database/db_server'
+require './config/database/db_client'
 
 # Data access object for Product collection
 class ProductDAO
   def initialize
-    @db = DBServer.new
+    @db = DBClient.new
     @product = @db.select_collection('products')
   end
 

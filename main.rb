@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require './config/CLI/cli_server'
+require './controller/CLI/cli_controller'
 
 # main class
 class Main
-  @cli = CLIServer.new
+  @cli = CLIController.new
   def self.run_cli
     @cli.start
   end

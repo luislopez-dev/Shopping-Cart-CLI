@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require './config/CLI/cli_actions'
+require './controller/CLI/cli_actions'
 
 # Command line interface server class
-class CLIServer
+class CLIController
 
   include CLIActions
 
